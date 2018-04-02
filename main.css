@@ -11,7 +11,7 @@ body{
     flex-direction: column;
     line-height: 1.5;
 }
-ul, h1, ol, h3, li, h2 > p, a> p, p {
+ul,  ol, h3, li, h2 > p, a> p, p {
     padding: 0;
     margin: 0;
 }
@@ -35,7 +35,8 @@ ul, h1, ol, h3, li, h2 > p, a> p, p {
 .title-img{
     width: 150px;
     height: 25px;
-    margin-left: 18px;
+    margin: 14px 0 0 18px;
+
 }
 .uppercase {
     text-transform: uppercase;
@@ -47,6 +48,7 @@ ul, h1, ol, h3, li, h2 > p, a> p, p {
     width: 20px;
     background: url("images/buttons/menu.svg") no-repeat  center; 
     background-size: 100%;
+  
 }
 .drop-btn-open{
     background: url("images/buttons/pageClose.png") no-repeat  center;
@@ -86,77 +88,121 @@ ul, h1, ol, h3, li, h2 > p, a> p, p {
 .clicked-background{
     background-color: #0A3FAD;
 }
+.navigation-list-number {
+    color: white;
+    padding-right: 16px;
+    font-size: 12px;
+}
 .content{ 
     display: block;
     height: 90%;  
     margin-top: 68px;
     z-index: -1;
 }
-h1 {
+h2 {
     font-size: 18px;
-    margin:23px 16px;
+    margin: 32px 16px 8px 16px ;
     text-align: center;
 } 
 .description-block {
     padding: 5px 16px 0 16px;
   
 }
-.description-block > h2 {
+.description-block > h3 {
     font-size: 18px;
     color: #0b4acc;
+    margin: 16px 0 0 0;
 }
 .description-block > p {
     font-size: 16px;
 
 }
-.description-block > img {
+#people-picture {
     width:215px;
     height: 135px;
     display: block;
-    margin:0 auto;
+    margin:16px auto;
 }
 #customer-picture{
     width: 103px;
     height: 135px;
+    display: block;
+    margin:16px auto;
 }
-.description-block > ol > li {
-    list-style-type: none;
-    margin-bottom: 16px;;
-}
-.list-number {
+.term-description {
     color: #0b4acc;
     font-weight: bold;
 }
+ ol {
+    list-style-type: none;
+}
+
+ol { counter-reset: item; }
+ol li { 
+    display: block; 
+    margin:8px 0;}
+#preparation-list { counter-reset: item 0; }
+#first-rounds { counter-reset: item 2; }
+#next-rounds { counter-reset: item 8; }
+ol li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    color: #0b4acc;
+    font-weight: bold;
+    margin-right: 5px;
+}
+ul.people-list > li:before{
+    content:none;
+}
+ul.people-list > li{
+margin: 0;
+}
 .internal-listitem-block {
-    margin-top: 16px;
+    margin: 10px 0;
     border: 1px dotted #0057a4;
-    padding: 0 16px;
+    padding: 10px 16px;
 }
 .tip-block {
    display: flex;
-   direction: row;
    align-items: center;
-   margin-top:16px;
+   flex-direction: row;
+   margin:16px 0;
+   height: 32px;
+   background: url("images/star.svg") no-repeat;
 }
-.tip-block > img {
-    margin-right:16px;
+.star {
+    padding-left: 48px;
 }
+.tip-block > p > span {
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    padding: 4px 30px 0 11px;
+}
+
 #like-img > img{
     display: block;
-    margin: 16px auto;
+    margin: 32px auto ;
+
 }
 .card-description > h3 {
-    margin: 5px 0;
+    margin: 8px 0;
     font-size: 16px;
    }
+#creators {
+    margin: 48px 16px;
+    padding: 16px;
+    border: 1px dotted #0057a4;
+}
+#creators > ul {list-style: none;}
 .footer-block{
     margin-top: 16px;
     align-self: flex-end;
     width: 100%;
-    height: 70px;
+    height: 56px;
     text-align: center;
     font-size: 12px;
-    border-top: 1px solid #cccccc;   
+    box-shadow: 0px  -4px  rgba(0, 0, 0, 0.1);
 }
 .footer-block > p {
     padding: 16px;
@@ -165,21 +211,61 @@ h1 {
 .footer-block a {
     color: #0045cf;
 }
-a[name] {padding-top:75px;}
+a[id] {padding-top:80px;}
 
 
 
 
-@media all and (min-width: 760px) {
+@media all and (min-width: 769px) {
 
-    body, ul, li, .people-block > p {
+    body, ul, li, .people-block > p, h2 {
         padding: 0;
         margin: 0;
     }
-    @media all and (max-width: 1000px) {
-        .separate_title{
-            margin-left: 0px;
-            text-align: center;
-        }
+    #like-img > img{
+        margin: 0 auto 24px auto ;
+    }
+ 
+    .expand-menu, .drop-btn {
+        display: none;
+    }
+    .group-block {
+        padding: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .description-block {
+        margin:2% 3%; 
+        width: 25%;
+        padding:16px;
+        border: 1px solid #0045cf;;
+        min-width: 350px; 
+        min-height: 450px; 
+    }
+   
+    .desktop-view {
+        width: 41%;
+    }
+    #people-picture {
+        min-width: 340px;
+        height: 220px;
+        display: block;
+        margin:32px auto;
+    }
+    #customer-picture{
+        min-width: 206px;
+        height: 270px;
+        
+    }
+    #creators {
+        width: 90%;
+        margin: 32px auto;
+        border: 1px solid #0045cf;;
+    }
+    #creators > ul > li {
+        display: inline;
+        padding: 0 8px;
     }
 }
