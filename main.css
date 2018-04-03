@@ -26,10 +26,14 @@ ul,  ol, h3, li, h2 > p, a> p, p {
     background: #fff;
 }
 .header-block-open-menu{
-    background-color:transparent ;
-    position: fixed;
-    z-index: 2;
-    box-shadow: none;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    padding: 0 16px;
+    align-items: center;
+}
+.header-block-open-menu > h1 > img {
+    margin-top: 10px;
 }
 .title-img{
     width: 150px;
@@ -50,9 +54,13 @@ ul,  ol, h3, li, h2 > p, a> p, p {
   
 }
 .drop-btn-open{
+    outline: none;
+    border: none;
+    height: 20px;
+    width: 20px;
     background: url("images/buttons/pageClose.png") no-repeat  center;
     background-size: 70%;
-    z-index: 3;
+   
 }
 .expand-menu {
     position: fixed;
@@ -61,8 +69,7 @@ ul,  ol, h3, li, h2 > p, a> p, p {
     height: 100%;
     width:100%;
     left:-100%;
-    margin-top: -56px;
-    padding-top: 112px;
+    top:0;
     transition: left 0.5s; 
 } 
 .expand-menu-open {
